@@ -1,0 +1,36 @@
+net:
+  timeout: 45 #in seconds
+  idle_conn_timeout: 75 #in seconds
+  max_idle_conns: 500
+  max_conns_per_host: 1000
+  X-Real-IP: "2.21.173.13"
+  X-Forwarded-For: "2.21.173.13"
+
+nats: "nats://localhost:2444"
+
+load_tests:
+  users: 10
+  threads: 200
+
+  #  numbers below are showing percent segmentation of scripts
+  #  sum of them must be 100%, that will be check in directly in test
+  scripts_percentage:
+    login_percents: 100
+    kyc_changing_percents: 0
+    create_incorrect_user_percents: 0
+    incorrect_logins_percents: 0
+    change_password_percents: 0
+    change_password_incorrect_percents: 0
+    update_token_percents: 0
+    request_link_percents: 0
+
+    create_sess_percents: 100
+    get_sess_percents: 0
+    delete_sess_percents: 0
+    routes_percents: 0
+    delete_all_percents: 0
+    pos_cookies_percents: 0
+
+    successful_purchase_percents: 25
+    successful_double_purchase_percents: 67
+    non_registered_purchase_percents: 8
