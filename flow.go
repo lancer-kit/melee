@@ -40,6 +40,10 @@ func (f *Flow) WithValue(key CtxKey, value interface{}) *Flow {
 	return f
 }
 
+func (f *Flow) GetValue(key CtxKey) (interface{}, bool) {
+	return f.kv.Load(key)
+}
+
 func (f *Flow) Run(t *testing.T) {
 	f.T = t
 	f.Logf("Starting flow: %s\n", f.Name)
